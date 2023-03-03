@@ -12,9 +12,6 @@ public interface ImovelRepository extends JpaRepository<Imovel, Long> {
 
     @Query("SELECT im FROM Imovel im WHERE dataExclusao IS NULL AND email = :emailUser ")
     List<Imovel> findByEmailAndDataExclusaoIsNull(@Param("emailUser") String emailUser);
-    @Query(value = "SELECT im FROM Imovel im WHERE dt_exclusao IS NULL AND cd_enderecos in :enderecos ", nativeQuery = true)
-    List<Imovel> findByEnderecosIn(@Param("enderecos") List<Long> enderecos);
-
     List<Imovel> findByDataExclusaoIsNull();
     String HAVERSINE_PART = "(6371 * acos(cos(radians(:latitude)) * cos(radians(e.latitude)) *" +
             " cos(radians(e.longitude) - radians(:longitude)) + sin(radians(:latitude)) * sin(radians(e.latitude))))";

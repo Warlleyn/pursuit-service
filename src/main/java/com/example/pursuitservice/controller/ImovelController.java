@@ -20,11 +20,6 @@ public class ImovelController {
     public List<Imovel> findByUser(Principal principal){
         return imovelBO.findByUser(principal.getName());
     }
-    @GetMapping(value = "/find/perimeter")
-    public List<Imovel> findByPerimeter(@RequestParam(value = "cep") String cep,
-                                        @RequestParam(value = "raio", required = false, defaultValue = "5") Integer raio){
-        return imovelBO.findByPerimeter(cep, raio);
-    }
     @GetMapping(value = "find/all")
     public List<Imovel> findAll(){
         return imovelBO.findAll();
@@ -40,5 +35,10 @@ public class ImovelController {
     @DeleteMapping("/delete/{id}")
     public void deleteById(@PathVariable Long id){
         imovelBO.deleteById(id);
+    }
+    @GetMapping(value = "/find/perimeter")
+    public List<Imovel> findByPerimeter(@RequestParam(value = "cep") String cep,
+                                        @RequestParam(value = "raio", required = false, defaultValue = "5") Integer raio){
+        return imovelBO.findByPerimeter(cep, raio);
     }
 }

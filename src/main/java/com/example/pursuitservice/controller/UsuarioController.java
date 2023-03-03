@@ -26,12 +26,12 @@ public class UsuarioController {
     public Usuario saveUser(@RequestBody UsuarioDTO usuarioDTO){
        return usuarioBO.saveByDTO(usuarioDTO);
     }
-    @PutMapping(value = "{id}")
-    public void updateUser(@PathVariable Long id, @RequestBody UsuarioDTO usuarioDTO){
-        usuarioBO.updateUser(usuarioDTO, id);
-    }
     @DeleteMapping(value = "{id}")
     public void deleteById(@PathVariable Long id){
         usuarioBO.deleteById(id);
+    }
+    @PutMapping(value = "{id}")
+    public void updateUser(@PathVariable Long id, @RequestBody UsuarioDTO usuarioDTO){
+        usuarioBO.updateUser(usuarioDTO, id);
     }
 }
