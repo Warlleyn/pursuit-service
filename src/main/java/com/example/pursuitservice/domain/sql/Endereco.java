@@ -3,6 +3,7 @@ package com.example.pursuitservice.domain.sql;
 import com.example.pursuitservice.dto.EnderecoDTO;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -18,12 +19,15 @@ public class Endereco {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cd_endereco")
     private Long codigo;
+    @NonNull
     @Column(name = "ds_logradouro")
     private String logradouro;
     @Column(name = "nr_logradouro")
     private String numeroLogradouro;
+    @NonNull
     @Column(name = "ds_bairro")
     private String bairro;
+    @NonNull
     @Column(name = "nr_cep")
     private String cep;
     @Column(name = "ds_latitude")
